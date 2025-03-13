@@ -1,0 +1,6 @@
+<h2>Stock List</h2>
+<ul>
+    <li *ngFor="let stock of stockList">
+        <strong>{{ stock.name }}</strong> ({{ stock.code }}) - ${{ stock.price }}
+    </li>
+</ul>

@@ -1,0 +1,35 @@
+<h1>Create Stock Form</h1>
+<form (ngSubmit)="createStock()" #stockForm="ngForm">
+    <div>
+        <label for="stockName">Stock Name</label>
+        <input type="text" id="stockName" name="stockName" [(ngModel)]="stock.name" #stockName="ngModel"
+            placeholder="Stock Name" [ngClass]="stockName.errors?.['required'] ? 'br-pink' : 'br-green'" required>
+    </div>
+    <div>
+        <label for="stockCode">Stock Code</label>
+        <input type="text" id="stockCode" name="stockCode" [(ngModel)]="stock.code" placeholder="Stock Code"
+            #stockCode="ngModel" [ngClass]="stockCode.errors?.['required'] ? 'br-green' : 'br-pink'" required>
+    </div>
+    <div>
+        <label for="stockPrice">Stock Price</label>
+        <input type="number" id="stockPrice" name="stockPrice" [(ngModel)]="stock.price" #stockPrice="ngModel"
+            [ngClass]="!stockPrice.touched ? 'br-green' : 'br-pink'" placeholder="Enter stock price" [defaultValue]=""
+            required>
+    </div>
+    <div>
+        <label for="stockExchange">Stock Exchange</label>
+        <select id="stockExchange" name="stockExchange" [(ngModel)]="stock.exchange">
+            <option *ngFor="let exchange of exchange_types" [value]="exchange">{{ exchange }}</option>
+        </select>
+    </div>
+    <div class="checkbox-container">
+        <input type="checkbox" name="stockConfirmed" [(ngModel)]="isConfirmed">
+        I confirm that the information provided is correct.
+    </div>
+    <button type="submit" [disabled]="!isConfirmed">Create Stock</button>
+</form>
+
+<h4 *ngIf="submitted">
+    Stock Created: {{ stock | json }}
+</h4>
+<h4 *ngIf="submitted">Data has been cf: {{stockForm.valid}} </h4>

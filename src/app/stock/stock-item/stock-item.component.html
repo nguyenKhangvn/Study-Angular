@@ -1,0 +1,26 @@
+<h1>WELCOME TO STOCK MARKET APP!</h1>
+<div class="stock-container">
+    <div class="name">
+        <h3>{{ stock.name }}</h3> - {{ stock.code }}
+    </div>
+    <div class="price" [ngClass]="stock.isPositiveChange() ? 'positive' : 'negative'">
+        $ {{ stock.price }}
+    </div>
+    <button (click)="toggleFavorite()" [disabled]="stock.favorite">
+        Add to Favorites
+    </button>
+</div>
+
+<div>
+    <label>Select Form Type:</label>
+    <select [(ngModel)]="selectedForm">
+      <option value="template">Template-driven Form</option>
+      <option value="reactive">Reactive Form</option>
+    </select>
+  </div>
+  
+  <div>
+    <app-create-stock *ngIf="selectedForm === 'template'"></app-create-stock>
+    <app-create-stock-reactive *ngIf="selectedForm === 'reactive'"></app-create-stock-reactive>
+  </div>
+  

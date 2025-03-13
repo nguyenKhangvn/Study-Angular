@@ -1,0 +1,32 @@
+<h1>Create Stock Form</h1>
+<form [formGroup]="userForm" (ngSubmit)="submitForm()">
+    <label for="name">Name:</label>
+    <input id="name" formControlName="name">
+    <div *ngIf="userForm.get('name')?.invalid && userForm.get('name')?.touched">
+        Tên Yêu cầu nhập hơn 3 kí tự.
+    </div>
+
+    <label for="code">code:</label>
+    <input id="code" formControlName="code">
+    <div *ngIf="userForm.get('code')?.invalid && userForm.get('code')?.touched">
+        Code Yêu cầu nhập hơn 3 kí tự.
+    </div>
+
+    <label for="price">price:</label>
+    <input id="price" type="number" formControlName="price">
+    <div *ngIf="userForm.get('price')?.invalid && userForm.get('price')?.touched">
+        Giá Yêu cầu phải nhập.
+    </div>
+
+    <button type="submit" [disabled]="userForm.invalid">Submit</button>
+</form>
+
+<div *ngIf="submitted">
+    <h3>User Form Control Value</h3>
+    <pre>{{ userForm.value | json }}</pre>
+</div>
+<div>
+    <h3>Form Status</h3>
+    <pre>{{ userForm.status | json }}</pre>
+</div>
+<app-stock-list [stockList]="stockList"></app-stock-list>
