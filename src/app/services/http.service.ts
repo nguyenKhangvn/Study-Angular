@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map, Observable } from 'rxjs';
 import { Stock } from '../model/stock';
+import { environment } from 'src/environments/environment';
 
 export interface IStock {
   id: string;
@@ -16,8 +17,7 @@ export interface IStock {
   providedIn: 'root'
 })
 export class HttpService {
-  private apiUrl = 'http://localhost:3000/stocks';
-
+  private apiUrl = environment.apiUrl + '/stocks';
   constructor(private http: HttpClient) {}
 
   // Lấy danh sách cổ phiếu
