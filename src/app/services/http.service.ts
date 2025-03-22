@@ -17,7 +17,7 @@ export interface IStock {
   providedIn: 'root'
 })
 export class HttpService {
-  private apiUrl = environment.apiUrl + '/stocks';
+  private apiUrl = environment.apiUrl + 'stocks';
   constructor(private http: HttpClient) {}
 
   // Lấy danh sách cổ phiếu
