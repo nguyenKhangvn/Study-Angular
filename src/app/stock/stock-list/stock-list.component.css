@@ -71,3 +71,7 @@ input {
   margin-bottom: 10px;
   border: 1px solid #ddd;
 }
+
+input, label {
+  display: block;
+}

@@ -1,12 +1,12 @@
 {
   "stocks": [
     {
-      "name": "KHANGND",
+      "name": "NGUYỄN ĐÌNH KHANG",
       "code": "TSC",
-      "price": 100,
+      "price": 200,
       "previousPrice": 80,
       "exchange": "NASDAQ",
-      "favorite": true,
+      "favorite": false,
       "id": "1"
     },
     {
@@ -37,31 +37,22 @@
       "favorite": false
     },
     {
-      "id": "3587",
-      "name": "4",
-      "code": "4",
-      "price": 4,
+      "id": "ecdf40652aebdf50b736bd5f8e8c4c7b905583c9fae09404af66bf87da0237c4",
+      "name": "3",
+      "code": "3",
+      "price": 3,
       "previousPrice": 0,
       "exchange": "NASDAQ",
       "favorite": false
     },
     {
-      "name": "Nguyễn Đình Khang",
-      "code": "5",
-      "price": 123,
+      "name": "TRUMP",
+      "code": "4",
+      "price": 281000,
       "previousPrice": 0,
       "exchange": "NASDAQ",
       "favorite": false,
-      "id": "OTE0MQ=="
-    },
-    {
-      "id": "47b61a126c54a6b117c3fc4ea2023c6a8637572f30ca97c179279cf607f156d0",
-      "name": "6",
-      "code": "6",
-      "price": 6,
-      "previousPrice": 0,
-      "exchange": "NASDAQ",
-      "favorite": false
+      "id": "6881f2b0b609698418e043658483690b2999ca7a334a20d005bf5d4523c03252"
     }
   ]
 }
