@@ -1,0 +1,73 @@
+.stock-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed; /* Đảm bảo cột không thay đổi kích thước */
+}
+
+.stock-table th, .stock-table td {
+  padding: 10px;
+  border: 1px solid #ddd;
+  text-align: left;
+  word-wrap: break-word; /* Ngăn text tràn ra ngoài */
+  overflow: hidden;
+  text-overflow: ellipsis; /* Hiển thị dấu "..." nếu nội dung quá dài */
+  white-space: nowrap;
+}
+
+.stock-table th {
+  background-color: #f4f4f4;
+}
+
+/* Xác định kích thước cột để cố định chiều rộng */
+.stock-table th:nth-child(1),
+.stock-table td:nth-child(1) {
+  width: 25%; /* Cột "Tên cổ phiếu" */
+}
+
+.stock-table th:nth-child(2),
+.stock-table td:nth-child(2) {
+  width: 15%; /* Cột "Mã" */
+}
+
+.stock-table th:nth-child(3),
+.stock-table td:nth-child(3) {
+  width: 20%; /* Cột "Giá hiện tại" */
+}
+
+.stock-table th:nth-child(4),
+.stock-table td:nth-child(4) {
+  width: 20%; /* Cột "Trạng thái" */
+}
+
+.stock-table th:nth-child(5),
+.stock-table td:nth-child(5) {
+  width: 20%; /* Cột "Hành động" */
+}
+
+.positive {
+  color: green;
+  font-weight: bold;
+}
+
+.negative {
+  color: red;
+  font-weight: bold;
+}
+
+button {
+  margin-right: 5px;
+  padding: 5px 10px;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #ddd;
+}
+
+input {
+  width: 100%;
+  padding: 5px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+}

@@ -9,7 +9,7 @@ import { StockItemComponent } from './stock/stock-item/stock-item.component';
 import { CreateStockComponent } from './stock/create-stock/create-stock.component';
 import { StockListComponent } from './stock/stock-list/stock-list.component';
 import { CreateStockReactiveComponent } from './stock/create-stock-reactive/create-stock-reactive.component';
-
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,13 +17,14 @@ import { CreateStockReactiveComponent } from './stock/create-stock-reactive/crea
     StockItemComponent,
     CreateStockComponent,
     StockListComponent,
-    CreateStockReactiveComponent
+    CreateStockReactiveComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

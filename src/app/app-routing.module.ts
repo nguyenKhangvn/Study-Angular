@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import * as path from 'path';
-import { StockItemComponent } from './stock/stock-item/stock-item.component';
+import { StockListComponent } from './stock/stock-list/stock-list.component';
 
 const routes: Routes = [
   { 
@@ -15,8 +15,8 @@ const routes: Routes = [
     component: LoginComponent 
   },
   {
-    path: 'stock/stock-item',
-    component: StockItemComponent
+    path: 'stock/stock-list',
+    component: StockListComponent
   },
   { 
     path: '**', 
