@@ -53,6 +53,15 @@
       "exchange": "NASDAQ",
       "favorite": false,
       "id": "6881f2b0b609698418e043658483690b2999ca7a334a20d005bf5d4523c03252"
+    },
+    {
+      "id": "82837d50572c36ebc90559bc99e03a96a098a2a73d588dc3ea052379bbe5d6f4",
+      "name": "5",
+      "code": "5",
+      "price": 5,
+      "previousPrice": 0,
+      "exchange": "NASDAQ",
+      "favorite": false
     }
   ]
 }

@@ -75,3 +75,15 @@ input {
 input, label {
   display: block;
 }
+
+@media (max-width: 768px) {
+  .stock-table-container {
+    width: 100%;
+    overflow-x: auto; /* Cho phép cuộn ngang */
+  }
+
+  .stock-table {
+    width: 100%;
+    min-width: 600px; /* Giữ kích thước tối thiểu để bảng không bị thu nhỏ */
+  }
+}
