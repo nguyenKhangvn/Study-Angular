@@ -10,6 +10,7 @@ import { CreateStockComponent } from './stock/create-stock/create-stock.componen
 import { StockListComponent } from './stock/stock-list/stock-list.component';
 import { CreateStockReactiveComponent } from './stock/create-stock-reactive/create-stock-reactive.component';
 import { HttpClientModule } from '@angular/common/http';
+import { EntertainmentComponent } from './entertainment/entertainment.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,6 +19,7 @@ import { HttpClientModule } from '@angular/common/http';
     CreateStockComponent,
     StockListComponent,
     CreateStockReactiveComponent,
+    EntertainmentComponent,
   ],
   imports: [
     BrowserModule,

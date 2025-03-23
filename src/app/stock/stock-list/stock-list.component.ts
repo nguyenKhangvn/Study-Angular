@@ -105,12 +105,17 @@ export class StockListComponent implements OnInit {
     this.stockService.updateStock(stock).subscribe(updatedStock => {
       const index = this.stocks.findIndex(s => s.id === stock.id);
       if (index !== -1) {
-        this.stocks[index] = updatedStock;
-        this.filteredStocks[index] = updatedStock;
+        const updatedStocks = [...this.stocks];
+        updatedStocks[index] = { ...updatedStock, isPositiveChange: () => updatedStock.price >= updatedStock.previousPrice }; // Cập nhật phần tử
+        this.stocks = updatedStocks; 
       }
       this.editingStockId = null;
     });
   }
+  
+  
+
+  
 
   onEditStock(stock: Stock) {
     console.log('Editing stock:', this.stock);
