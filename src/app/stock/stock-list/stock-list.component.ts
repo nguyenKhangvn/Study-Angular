@@ -94,7 +94,6 @@ export class StockListComponent implements OnInit {
     this.isShowCreateForm = false;
   }
   
-
   deleteStock(id: string): void {
     this.stockService.deleteStock(id).subscribe(() => {
       this.stocks = this.stocks.filter(stock => stock.id !== id);

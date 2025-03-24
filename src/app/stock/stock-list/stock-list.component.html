@@ -1,6 +1,8 @@
 <button routerLink="/entertainment">Đi đến trang Giải trí</button>
 <h1>WELCOME TO STOCK MARKET APP!</h1>
-
+<button (click)="showCreateForm()">
+    + Thêm cổ phiếu
+</button>
 <h2>Tìm kiếm cổ phiếu</h2>
 <input type="text" [(ngModel)]="searchKeyword" (input)="search()" placeholder="Nhập mã hoặc tên cổ phiếu...">
 <div *ngIf="filteredStocks?.length === 0; else stockList">
@@ -9,9 +11,6 @@
 
 <ng-template #stockList>
     <h2>Danh sách cổ phiếu
-        <button (click)="showCreateForm()">
-            + Thêm cổ phiếu
-        </button>
     </h2>
     <table class="stock-table">
         <thead>
