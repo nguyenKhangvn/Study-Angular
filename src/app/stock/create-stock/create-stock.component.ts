@@ -57,8 +57,10 @@ export class CreateStockComponent implements OnInit {
   public exchange_types = ['NYSE', 'NASDAQ', 'OTHER'];
   public isConfirmed: boolean = false;
   public errorMessage: string = '';
+  public isShowCreateForm: boolean = true;
   
   @Output() stockCreated = new EventEmitter<Stock>();
+  @Output() closeForm = new EventEmitter<void>();
 
   constructor() {}
 
@@ -93,5 +95,9 @@ export class CreateStockComponent implements OnInit {
 
   setStockPrice(price: number): void {
     this.stock.price = price;
+  }
+
+  closeCreateForm() {
+    this.closeForm.emit();
   }
 }

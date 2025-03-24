@@ -8,8 +8,11 @@
 </div>
 
 <ng-template #stockList>
-
-    <h2>Danh sách cổ phiếu</h2>
+    <h2>Danh sách cổ phiếu
+        <button (click)="showCreateForm()">
+            + Thêm cổ phiếu
+        </button>
+    </h2>
     <table class="stock-table">
         <thead>
             <tr>
@@ -66,5 +69,6 @@
         </tbody>
     </table>
 </ng-template>
-<!-- Form tạo cổ phiếu mới -->
-<app-create-stock (stockCreated)="createStock($event)"></app-create-stock>
+
+<app-create-stock *ngIf="isShowCreateForm" (closeForm)="hideCreateForm()"
+    (stockCreated)="createStock($event)"></app-create-stock>
