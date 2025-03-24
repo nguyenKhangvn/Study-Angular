@@ -74,7 +74,7 @@ export class StockListComponent implements OnInit {
   public editingStockId: string | null = null;
   showFavoritesOnly: boolean = false;
   public favoriteStocks: Stock[] = [];
-
+  public isShowCreateForm: boolean = false;
   constructor(private stockService: HttpService) {}
 
   ngOnInit(): void {
@@ -91,6 +91,7 @@ export class StockListComponent implements OnInit {
         console.error('Error loading stocks:', error);
       }
     });
+    this.isShowCreateForm = false;
   }
   
 
@@ -157,5 +158,13 @@ export class StockListComponent implements OnInit {
     } else {
       this.filteredStocks = this.stocks;
     }
+  }
+
+  showCreateForm(){
+    this.isShowCreateForm = true;
+  }
+
+  hideCreateForm(){
+    this.isShowCreateForm = false;
   }
 }
