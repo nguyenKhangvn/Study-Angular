@@ -1,7 +1,7 @@
 // export class Stock {
 //     favorite: boolean = false;
 
-//     constructor( 
+//     constructor(
 //         public name: string,
 //         public code: string,
 //         public price: number,
@@ -14,23 +14,22 @@
 //     }
 // }
 
-
 export class Stock {
-    id: string;  // Thêm thuộc tính id
-    favorite: boolean = false;
+  id: string; // Thêm thuộc tính id
+  favorite: boolean = false;
 
-    constructor(
-        id: string,  // Nhận id từ constructor
-        public name: string,
-        public code: string,
-        public price: number,
-        public previousPrice: number,
-        public exchange: string
-    ) {
-        this.id = id;  // Gán id từ constructor vào thuộc tính id
-    }
+  constructor(
+    id: string, // Nhận id từ constructor
+    public name: string,
+    public code: string,
+    public price: number,
+    public previousPrice: number,
+    public exchange: string
+  ) {
+    this.id = id; // Gán id từ constructor vào thuộc tính id
+  }
 
-    isPositiveChange(): boolean {
-        return this.price >= this.previousPrice;
-    }
+  isPositiveChange(): boolean {
+    return this.price >= this.previousPrice;
+  }
 }

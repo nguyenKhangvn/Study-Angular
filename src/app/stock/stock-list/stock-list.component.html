@@ -1,73 +1,103 @@
 <button routerLink="/entertainment">Đi đến trang Giải trí</button>
 <h1>WELCOME TO STOCK MARKET APP!</h1>
-<button (click)="showCreateForm()">
-    + Thêm cổ phiếu
-</button>
+<button (click)="showCreateForm()">+ Thêm cổ phiếu</button>
 <h2>Tìm kiếm cổ phiếu</h2>
-<input type="text" [(ngModel)]="searchKeyword" (input)="search()" placeholder="Nhập mã hoặc tên cổ phiếu...">
+<input
+  type="text"
+  [(ngModel)]="searchKeyword"
+  (input)="search()"
+  placeholder="Nhập mã hoặc tên cổ phiếu..."
+/>
 <div *ngIf="filteredStocks?.length === 0; else stockList">
-    <p>Không tìm thấy cổ phiếu nào.</p>
+  <p>Không tìm thấy cổ phiếu nào.</p>
 </div>
 
 <ng-template #stockList>
-    <h2>Danh sách cổ phiếu
-    </h2>
-    <table class="stock-table">
-        <thead>
-            <tr>
-                <th>Tên cổ phiếu</th>
-                <th>Mã</th>
-                <th>Giá hiện tại</th>
-                <th>Trạng thái
-                    <button (click)="toggleFavoriteFilter()">
-                        {{ showFavoritesOnly ? 'Hiện tất cả' : 'Chỉ hiển thị yêu thích' }}
-                    </button>
-                </th>
-                <th>Hành động</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let stock of filteredStocks">
-                <ng-container *ngIf="editingStockId !== stock.id; else editForm">
-                    <td>{{ stock.name }}</td>
-                    <td>{{ stock.code }}</td>
-                    <td [ngClass]="{'positive': stock.isPositiveChange(), 'negative': !stock.isPositiveChange()}">
-                        $ {{ stock.price }}
-                    </td>
-                    <td>
-                        <span *ngIf="stock.favorite" class="favorite">★ Đã yêu thích</span>
-                        <button *ngIf="!stock.favorite" (click)="onToggleFavorite(stock)">Thêm vào yêu thích</button>
-                    </td>
-                    <td>
-                        <button (click)="onEditStock(stock)">Chỉnh sửa</button>
-                        <button (click)="deleteStock(stock.id)" class="delete-btn">Xóa</button>
-                    </td>
-                </ng-container>
+  <h2>Danh sách cổ phiếu</h2>
+  <table class="stock-table">
+    <thead>
+      <tr>
+        <th>Tên cổ phiếu</th>
+        <th>Mã</th>
+        <th>Giá hiện tại</th>
+        <th>
+          Trạng thái
+          <button (click)="toggleFavoriteFilter()">
+            {{ showFavoritesOnly ? "Hiện tất cả" : "Chỉ hiển thị yêu thích" }}
+          </button>
+        </th>
+        <th>Hành động</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let stock of filteredStocks">
+        <ng-container *ngIf="editingStockId !== stock.id; else editForm">
+          <td>{{ stock.name }}</td>
+          <td>{{ stock.code }}</td>
+          <td
+            [ngClass]="{
+              positive: stock.isPositiveChange(),
+              negative: !stock.isPositiveChange()
+            }"
+          >
+            $ {{ stock.price }}
+          </td>
+          <td>
+            <span *ngIf="stock.favorite" class="favorite">★ Đã yêu thích</span>
+            <button *ngIf="!stock.favorite" (click)="onToggleFavorite(stock)">
+              Thêm vào yêu thích
+            </button>
+          </td>
+          <td>
+            <button (click)="onEditStock(stock)">Chỉnh sửa</button>
+            <button (click)="deleteStock(stock.id)" class="delete-btn">
+              Xóa
+            </button>
+          </td>
+        </ng-container>
 
-                <ng-template #editForm>
-                    <td colspan="5">
-                        <div class="edit-stock-form">
-                            <h3>Chỉnh sửa cổ phiếu</h3>
-                            <form (ngSubmit)="editStock(stock) ">
-                                <label for="name">Tên:</label>
-                                <input type="text" [(ngModel)]="stock.name" name="name" required>
+        <ng-template #editForm>
+          <td colspan="5">
+            <div class="edit-stock-form">
+              <h3>Chỉnh sửa cổ phiếu</h3>
+              <form (ngSubmit)="editStock(stock)">
+                <label for="name">Tên:</label>
+                <input
+                  type="text"
+                  [(ngModel)]="stock.name"
+                  name="name"
+                  required
+                />
 
-                                <label for="code">Mã:</label>
-                                <input type="text" [(ngModel)]="stock.code" name="code" [disabled]="true">
+                <label for="code">Mã:</label>
+                <input
+                  type="text"
+                  [(ngModel)]="stock.code"
+                  name="code"
+                  [disabled]="true"
+                />
 
-                                <label for="price">Giá:</label>
-                                <input type="number" [(ngModel)]="stock.price" name="price" required>
+                <label for="price">Giá:</label>
+                <input
+                  type="number"
+                  [(ngModel)]="stock.price"
+                  name="price"
+                  required
+                />
 
-                                <button type="submit">Lưu</button>
-                                <button type="button" (click)="cancelEdit()">Hủy</button>
-                            </form>
-                        </div>
-                    </td>
-                </ng-template>
-            </tr>
-        </tbody>
-    </table>
+                <button type="submit">Lưu</button>
+                <button type="button" (click)="cancelEdit()">Hủy</button>
+              </form>
+            </div>
+          </td>
+        </ng-template>
+      </tr>
+    </tbody>
+  </table>
 </ng-template>
 
-<app-create-stock *ngIf="isShowCreateForm" (closeForm)="hideCreateForm()"
-    (stockCreated)="createStock($event)"></app-create-stock>
+<app-create-stock
+  *ngIf="isShowCreateForm"
+  (closeForm)="hideCreateForm()"
+  (stockCreated)="createStock($event)"
+></app-create-stock>

@@ -1,75 +1,90 @@
 /* Căn chỉnh bảng */
 table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
 }
 
 /* Style cho hàng tiêu đề */
 th {
-    background-color: #f8f9fa;
-    font-weight: bold;
-    text-align: left;
-    padding: 12px;
-    border-bottom: 2px solid #dee2e6;
+  background-color: #f8f9fa;
+  font-weight: bold;
+  text-align: left;
+  padding: 12px;
+  border-bottom: 2px solid #dee2e6;
 }
 
 /* Style cho từng ô trong bảng */
 td {
-    padding: 10px;
-    border-bottom: 1px solid #dee2e6;
+  padding: 10px;
+  border-bottom: 1px solid #dee2e6;
 }
 
 /* Căn chỉnh nội dung trong cột */
-td:nth-child(1) { width: 30%; } /* Tên cổ phiếu */
-td:nth-child(2) { width: 15%; text-align: center; } /* Mã */
-td:nth-child(3) { width: 15%; font-weight: bold; text-align: right; } /* Giá */
-td:nth-child(4) { width: 20%; text-align: center; } /* Trạng thái */
-td:nth-child(5) { width: 20%; text-align: center; } /* Hành động */
+td:nth-child(1) {
+  width: 30%;
+} /* Tên cổ phiếu */
+td:nth-child(2) {
+  width: 15%;
+  text-align: center;
+} /* Mã */
+td:nth-child(3) {
+  width: 15%;
+  font-weight: bold;
+  text-align: right;
+} /* Giá */
+td:nth-child(4) {
+  width: 20%;
+  text-align: center;
+} /* Trạng thái */
+td:nth-child(5) {
+  width: 20%;
+  text-align: center;
+} /* Hành động */
 
 /* Nền màu xen kẽ cho các hàng */
 tr:nth-child(even) {
-    background-color: #f2f2f2;
+  background-color: #f2f2f2;
 }
 
 /* Style cho giá cổ phiếu tăng giảm */
 .positive {
-    color: green;
-    font-weight: bold;
+  color: green;
+  font-weight: bold;
 }
 
 .negative {
-    color: red;
-    font-weight: bold;
+  color: red;
+  font-weight: bold;
 }
 
 /* Style cho nút bấm */
 button {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    padding: 8px 12px;
-    cursor: pointer;
-    border-radius: 4px;
-    font-size: 14px;
-    margin: 2px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 14px;
+  margin: 2px;
 }
 
 button:hover {
-    background-color: #0056b3;
+  background-color: #0056b3;
 }
 
 button:disabled {
-    background-color: #ccc;
-    cursor: not-allowed;
+  background-color: #ccc;
+  cursor: not-allowed;
 }
 
 /* Style cho nút yêu thích */
 button.favorite {
-    background-color: #ffc107;
-    color: black;
+  background-color: #ffc107;
+  color: black;
 }
 
 button.favorite:hover {
-    background-color: #e0a800;
+  background-color: #e0a800;
 }

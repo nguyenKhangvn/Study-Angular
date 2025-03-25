@@ -5,8 +5,8 @@
 export const environment = {
   production: true,
   // apiUrls: 'http://localhost:3000' 
-  //apiUrls: 'http://localhost:5003' 
-   apiUrls: 'https://study-be-zj58.onrender.com' 
+  apiUrls: 'http://localhost:5003' 
+  //  apiUrls: 'https://study-be-zj58.onrender.com' 
 };
 
 /*

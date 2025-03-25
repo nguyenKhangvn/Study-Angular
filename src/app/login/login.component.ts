@@ -3,27 +3,22 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
   usernames: string = '';
   passwords: string = '';
   errorMessage: string = '';
-  
-  constructor(
-    private router: Router
-  ) { }
 
+  constructor(private router: Router) {}
 
   onSubmit() {
     if (this.usernames == 'khang' && this.passwords == '123') {
       this.router.navigate(['/stock/stock-list']);
     } else {
-      this.errorMessage = 'Tên người dùng hoặc mật khẩu không đúng. Vui lòng thử lại.';
+      this.errorMessage =
+        'Tên người dùng hoặc mật khẩu không đúng. Vui lòng thử lại.';
     }
-
   }
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }
