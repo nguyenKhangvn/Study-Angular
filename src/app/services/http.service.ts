@@ -34,6 +34,20 @@ export class HttpService {
     );
   }
 
+  getStockById(id: string): Observable<Stock> {
+    const fullUrl = `${this.apiUrl}/id/${id}`;
+    console.log('Requesting:', fullUrl);
+    return this.http.get<Stock>(`${this.apiUrl}/id/${id}`).pipe(
+      map(stock => new Stock(
+        stock.id,
+        stock.name,
+        stock.code,
+        stock.price,
+        stock.previousPrice,
+        stock.exchange
+      ))
+    );
+  }
   // Thêm cổ phiếu mới
   addStock(stock: Stock): Observable<Stock> {
     return this.http.post<Stock>(this.apiUrl, stock).pipe(

@@ -1,1 +1,20 @@
+<!-- 
+- Register
+- Login
+- Details
+- Xử lý điều hướng
+- app.component
+- app.module
++ layout
++ Hiển thị điều hướng
+ -->
+<nav>
+    <a routerLink="/home" routerLinkActive="active">Trang chủ</a>
+    <a routerLink="/stock/stock-list" routerLinkActive="active">Danh sách cổ phiếu</a>
+    <a routerLink="/entertainment" routerLinkActive="active">Giải trí</a>
+    <a *ngIf="!authService.isLoggedIn()" routerLink="/register" routerLinkActive="active">Đăng ký</a>
+    <a *ngIf="!authService.isLoggedIn()" routerLink="/login" routerLinkActive="active">Đăng nhập</a>
+    <a *ngIf="authService.isLoggedIn()" (click)="onLogout()">Đăng xuất</a>
+
+</nav>
 <router-outlet></router-outlet>

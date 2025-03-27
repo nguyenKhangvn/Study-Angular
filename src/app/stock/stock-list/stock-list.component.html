@@ -1,13 +1,7 @@
-<button routerLink="/entertainment">Đi đến trang Giải trí</button>
 <h1>WELCOME TO STOCK MARKET APP!</h1>
 <button (click)="showCreateForm()">+ Thêm cổ phiếu</button>
 <h2>Tìm kiếm cổ phiếu</h2>
-<input
-  type="text"
-  [(ngModel)]="searchKeyword"
-  (input)="search()"
-  placeholder="Nhập mã hoặc tên cổ phiếu..."
-/>
+<input type="text" [(ngModel)]="searchKeyword" (input)="search()" placeholder="Nhập mã hoặc tên cổ phiếu..." />
 <div *ngIf="filteredStocks?.length === 0; else stockList">
   <p>Không tìm thấy cổ phiếu nào.</p>
 </div>
@@ -34,12 +28,10 @@
         <ng-container *ngIf="editingStockId !== stock.id; else editForm">
           <td>{{ stock.name }}</td>
           <td>{{ stock.code }}</td>
-          <td
-            [ngClass]="{
+          <td [ngClass]="{
               positive: stock.isPositiveChange(),
               negative: !stock.isPositiveChange()
-            }"
-          >
+            }">
             $ {{ stock.price }}
           </td>
           <td>
@@ -53,6 +45,9 @@
             <button (click)="deleteStock(stock.id)" class="delete-btn">
               Xóa
             </button>
+            <button (click)="detailStock(stock.id)">
+              Xem chi tiết
+            </button>
           </td>
         </ng-container>
 
@@ -62,28 +57,13 @@
               <h3>Chỉnh sửa cổ phiếu</h3>
               <form (ngSubmit)="editStock(stock)">
                 <label for="name">Tên:</label>
-                <input
-                  type="text"
-                  [(ngModel)]="stock.name"
-                  name="name"
-                  required
-                />
+                <input type="text" [(ngModel)]="stock.name" name="name" required />
 
                 <label for="code">Mã:</label>
-                <input
-                  type="text"
-                  [(ngModel)]="stock.code"
-                  name="code"
-                  [disabled]="true"
-                />
+                <input type="text" [(ngModel)]="stock.code" name="code" [disabled]="true" />
 
                 <label for="price">Giá:</label>
-                <input
-                  type="number"
-                  [(ngModel)]="stock.price"
-                  name="price"
-                  required
-                />
+                <input type="number" [(ngModel)]="stock.price" name="price" required />
 
                 <button type="submit">Lưu</button>
                 <button type="button" (click)="cancelEdit()">Hủy</button>
@@ -96,8 +76,5 @@
   </table>
 </ng-template>
 
-<app-create-stock
-  *ngIf="isShowCreateForm"
-  (closeForm)="hideCreateForm()"
-  (stockCreated)="createStock($event)"
-></app-create-stock>
+<app-create-stock *ngIf="isShowCreateForm" (closeForm)="hideCreateForm()"
+  (stockCreated)="createStock($event)"></app-create-stock>

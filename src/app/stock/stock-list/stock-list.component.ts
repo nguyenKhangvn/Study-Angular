@@ -58,6 +58,7 @@
 //   }
 // }
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Stock } from 'src/app/model/stock';
 import { HttpService } from 'src/app/services/http.service';
 
@@ -75,7 +76,7 @@ export class StockListComponent implements OnInit {
   showFavoritesOnly: boolean = false;
   public favoriteStocks: Stock[] = [];
   public isShowCreateForm: boolean = false;
-  constructor(private stockService: HttpService) {}
+  constructor(private stockService: HttpService, private router: Router) {}
 
   ngOnInit(): void {
     this.loadStocks();
@@ -178,5 +179,10 @@ export class StockListComponent implements OnInit {
 
   hideCreateForm() {
     this.isShowCreateForm = false;
+  }
+
+  detailStock(id : string) {
+    console.log('Detail stock:', id);
+    this.router.navigate(['/stock/stock-details', id]);
   }
 }

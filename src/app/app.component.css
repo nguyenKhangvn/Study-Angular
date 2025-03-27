@@ -1,0 +1,49 @@
+nav {
+    background-color: #007bff; /* Màu nền xanh dương */
+    padding: 10px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  nav a {
+    text-decoration: none;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 8px 16px;
+    border-radius: 5px;
+    transition: background 0.3s, transform 0.2s;
+  }
+  
+  nav a:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.1);
+  }
+  
+  /* Hiệu ứng khi đang ở trang hiện tại */
+  nav a.active {
+    background: white;
+    color: #007bff;
+    border-radius: 5px;
+    padding: 8px 16px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* 📱 Responsive: Hiển thị dọc trên màn hình nhỏ */
+  @media (max-width: 768px) {
+    nav {
+      flex-direction: column;
+      gap: 10px;
+      padding: 15px;
+    }
+  
+    nav a {
+      font-size: 1rem;
+      padding: 10px 12px;
+    }
+  }
+  
