@@ -8,13 +8,57 @@
 + layout
 + Hiển thị điều hướng
  -->
-<nav>
-    <a routerLink="/home" routerLinkActive="active">Trang chủ</a>
-    <a routerLink="/stock/stock-list" routerLinkActive="active">Danh sách cổ phiếu</a>
-    <a routerLink="/entertainment" routerLinkActive="active">Giải trí</a>
-    <a *ngIf="!authService.isLoggedIn()" routerLink="/register" routerLinkActive="active">Đăng ký</a>
-    <a *ngIf="!authService.isLoggedIn()" routerLink="/login" routerLinkActive="active">Đăng nhập</a>
-    <a *ngIf="authService.isLoggedIn()" (click)="onLogout()">Đăng xuất</a>
+<mat-toolbar color="primary">
+    <button mat-icon-button class="custom-button" (click)="openSidenav()">
+        <mat-icon>menu</mat-icon>
+    </button>
+    <span>Stock Market</span>
+    <span class="spacer"></span>
 
-</nav>
-<router-outlet></router-outlet>
+    <a mat-button routerLink="/home" routerLinkActive="active">
+        <mat-icon>home</mat-icon> Trang chủ
+    </a>
+    <a mat-button routerLink="/stock/stock-list" routerLinkActive="active">
+        <mat-icon>list</mat-icon> Danh sách cổ phiếu
+    </a>
+    <a mat-button routerLink="/entertainment" routerLinkActive="active">
+        <mat-icon>movie</mat-icon> Giải trí
+    </a>
+
+    <ng-container *ngIf="!authService.isLoggedIn()">
+        <a mat-button routerLink="/register" routerLinkActive="active">
+            <mat-icon>person_add</mat-icon> Đăng ký
+        </a>
+        <a mat-button routerLink="/login" routerLinkActive="active">
+            <mat-icon>login</mat-icon> Đăng nhập
+        </a>
+    </ng-container>
+
+    <a *ngIf="authService.isLoggedIn()" mat-button (click)="onLogout()">
+        <mat-icon>logout</mat-icon> Đăng xuất
+    </a>
+</mat-toolbar>
+
+
+<mat-sidenav-container class="container">
+    <mat-sidenav #sidenav mode="side" opened>
+        <mat-nav-list>z
+            <div style="margin-top: 50px;">
+                <a mat-list-item routerLink="/home">
+                    <mat-icon>home</mat-icon> Home
+                </a>
+                <a mat-list-item routerLink="/stock/create-stock">
+                    <mat-icon>add_circle</mat-icon> Create Stock
+                </a>
+                <a mat-list-item routerLink="/stock/stock-list">
+                    <mat-icon>download</mat-icon> List Stock
+                </a>
+                <a mat-list-item (click)="closeSidenav()">
+                    <mat-icon>close</mat-icon> Close
+                </a>
+            </div>
+
+        </mat-nav-list>
+    </mat-sidenav>
+
+    <router-outlet></router-outlet>

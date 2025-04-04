@@ -2,6 +2,7 @@
   width: 100%;
   border-collapse: collapse;
   table-layout: fixed; /* Đảm bảo cột không thay đổi kích thước */
+  /* Khoảng cách giữa toolbar và bảng */
 }
 
 .stock-table th, .stock-table td {
@@ -21,7 +22,7 @@
 /* Xác định kích thước cột để cố định chiều rộng */
 .stock-table th:nth-child(1),
 .stock-table td:nth-child(1) {
-  width: 25%; /* Cột "Tên cổ phiếu" */
+  width: 20%; /* Cột "Tên cổ phiếu" */
 }
 
 .stock-table th:nth-child(2),
@@ -41,7 +42,7 @@
 
 .stock-table th:nth-child(5),
 .stock-table td:nth-child(5) {
-  width: 20%; /* Cột "Hành động" */
+  width: 25%; /* Cột "Hành động" */
 }
 
 .positive {
@@ -79,11 +80,11 @@ input, label {
 @media (max-width: 768px) {
   .stock-table-container {
     width: 100%;
-    overflow-x: auto; /* Cho phép cuộn ngang */
+    overflow-x: auto; 
   }
 
   .stock-table {
     width: 100%;
-    min-width: 600px; /* Giữ kích thước tối thiểu để bảng không bị thu nhỏ */
+    min-width: 600px;
   }
 }

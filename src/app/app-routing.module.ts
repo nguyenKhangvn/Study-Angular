@@ -7,6 +7,7 @@ import { EntertainmentComponent } from './entertainment/entertainment.component'
 import { RegisterComponent } from './register/register.component';
 import { StockDetailsComponent } from './stock/stock-details/stock-details.component';
 import { HomeComponent } from './home/home.component';
+import { CreateStockComponent } from './stock/create-stock/create-stock.component';
 
 const routes: Routes = [
   { 
@@ -21,6 +22,10 @@ const routes: Routes = [
   {
     path: 'stock/stock-list',
     component: StockListComponent
+  },
+  {
+    path: 'stock/create-stock',
+    component: CreateStockComponent,
   },
   {
     path: 'stock/stock-details/:id',

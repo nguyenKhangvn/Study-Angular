@@ -45,6 +45,8 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Stock } from 'src/app/model/stock';
 import * as CryptoJS from 'crypto-js';
+import { HttpService } from 'src/app/services/http.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-create-stock',
   templateUrl: './create-stock.component.html',
@@ -59,10 +61,10 @@ export class CreateStockComponent implements OnInit {
   public errorMessage: string = '';
   public isShowCreateForm: boolean = true;
   
-  @Output() stockCreated = new EventEmitter<Stock>();
-  @Output() closeForm = new EventEmitter<void>();
+  // @Output() stockCreated = new EventEmitter<Stock>();
+  // @Output() closeForm = new EventEmitter<void>();
 
-  constructor() {}
+  constructor(private stockService : HttpService, private router: Router) {}
 
   ngOnInit(): void {
     this.resetStock();
@@ -82,10 +84,16 @@ export class CreateStockComponent implements OnInit {
     );
 
     this.submitted = true;
-    this.stockCreated.emit(newStock);
 
-    console.log('Stock Created:', newStock);
-    this.resetStock();
+    this.stockService.addStock(newStock).subscribe({
+        next: () => {
+          this.resetStock();
+        },
+        error: (err) => {
+          console.error('Error creating stock:', err);
+          this.errorMessage = 'Lỗi khi tạo cổ phiếu';
+        }
+    });
   }
   resetStock(): void {
     this.stock = new Stock('', '', '', 0, 0, 'NASDAQ');
@@ -98,6 +106,8 @@ export class CreateStockComponent implements OnInit {
   }
 
   closeCreateForm() {
-    this.closeForm.emit();
+    // this.closeForm.emit();
+    this.isShowCreateForm = false;
+    this.router.navigate(['/stock/stock-list']);
   }
 }
