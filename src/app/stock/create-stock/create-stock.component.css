@@ -33,14 +33,14 @@ body {
 /* 📋 Container của form */
 .create-stock-container {
     position: fixed;
-    top: 50%;
+    top: 55%;
     left: 50%;
     transform: translate(-50%, -50%);
     background: #ffffff;
     padding: 40px;
     border-radius: 16px;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-    width: 360px;
+    width: 300px;
     z-index: 1000;
     animation: fadeInScale 0.3s ease-in-out;
 }

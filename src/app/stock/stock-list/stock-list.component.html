@@ -1,4 +1,4 @@
-<div style="margin-left: 20px;">
+<div style="margin: 40px 0 0 20px">
   <h1>WELCOME TO STOCK MARKET APP!</h1>
   <!-- <button (click)="showCreateForm()">+ Thêm cổ phiếu</button> -->
   <h2>Tìm kiếm cổ phiếu</h2>
@@ -42,8 +42,8 @@
               </button>
             </td>
             <td>
-              <button (click)="onEditStock(stock)">Chỉnh sửa</button>
-              <button (click)="deleteStock(stock.id)" class="delete-btn">
+              <button *ngIf="authService.isLoggedIn()" (click)="onEditStock(stock)">Chỉnh sửa</button>
+              <button *ngIf="authService.isLoggedIn()" (click)="deleteStock(stock.id)" class="delete-btn">
                 Xóa
               </button>
               <button (click)="detailStock(stock.id)">

@@ -46,7 +46,8 @@
 
 /* 📌 Điều chỉnh icon trong menu */
 .mat-icon {
-  font-size: 20px;
+  /* font-size: 20px; */
+  padding-right: 5px;
 }
 
 /* 📌 Layout content, tránh bị toolbar che */

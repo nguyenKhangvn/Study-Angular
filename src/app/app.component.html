@@ -9,7 +9,7 @@
 + Hiển thị điều hướng
  -->
 <mat-toolbar color="primary">
-    <button mat-icon-button class="custom-button" (click)="openSidenav()">
+    <button mat-icon-button class="custom-button" (click)="toggleSidenav()">
         <mat-icon>menu</mat-icon>
     </button>
     <span>Stock Market</span>
@@ -42,16 +42,16 @@
 
 <mat-sidenav-container class="container">
     <mat-sidenav #sidenav mode="side" opened>
-        <mat-nav-list>z
+        <mat-nav-list>
             <div style="margin-top: 50px;">
                 <a mat-list-item routerLink="/home">
                     <mat-icon>home</mat-icon> Home
                 </a>
-                <a mat-list-item routerLink="/stock/create-stock">
+                <a *ngIf="authService.isLoggedIn()" mat-list-item routerLink="/stock/create-stock">
                     <mat-icon>add_circle</mat-icon> Create Stock
                 </a>
                 <a mat-list-item routerLink="/stock/stock-list">
-                    <mat-icon>download</mat-icon> List Stock
+                    <mat-icon>list</mat-icon> List Stock
                 </a>
                 <a mat-list-item (click)="closeSidenav()">
                     <mat-icon>close</mat-icon> Close

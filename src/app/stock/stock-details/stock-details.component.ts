@@ -19,15 +19,13 @@ export class StockDetailsComponent implements OnInit {
 
   ngOnInit() {
     const stockId = this.route.snapshot.paramMap.get('id');
-    console.log('🆔 Stock ID:', stockId);
   
     if (stockId) {
       this.stockService.getStockById(stockId).subscribe(stock => {
-        console.log('✅ Stock received:', stock);
         this.stock = stock;
       });
     } else {
-      console.error('❌ No stock ID found in route');
+      console.error('No stock ID found in route');
     }
   }
   

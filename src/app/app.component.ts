@@ -22,6 +22,7 @@ export class AppComponent {
   
   onLogout() {
     this.authService.logout();
+    this.sidenav.close();
     this.router.navigate(['/login']);
   }
 
@@ -31,8 +32,5 @@ export class AppComponent {
 
   closeSidenav() {
     this.sidenav.close();
-  }
-  openSidenav() {
-    this.sidenav.open();
   }
 }

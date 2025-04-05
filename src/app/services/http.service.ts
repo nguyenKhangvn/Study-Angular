@@ -64,6 +64,7 @@ export class HttpService {
 
   // Cập nhật cổ phiếu
   updateStock(stock: Stock): Observable<Stock> {
+    debugger
     return this.http.put<Stock>(`${this.apiUrl}/${stock.id}`, stock).pipe(
       map(updatedStock => new Stock(
         updatedStock.id,

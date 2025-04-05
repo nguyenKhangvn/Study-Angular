@@ -60,6 +60,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Stock } from 'src/app/model/stock';
+import { AuthService } from 'src/app/services/auth.service';
 import { HttpService } from 'src/app/services/http.service';
 
 @Component({
@@ -76,7 +77,11 @@ export class StockListComponent implements OnInit {
   showFavoritesOnly: boolean = false;
   public favoriteStocks: Stock[] = [];
   public isShowCreateForm: boolean = false;
-  constructor(private stockService: HttpService, private router: Router) {}
+  constructor(
+    private stockService: HttpService,
+    public  authService: AuthService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.loadStocks();
@@ -85,17 +90,7 @@ export class StockListComponent implements OnInit {
   loadStocks(): void {
     this.stockService.getStocks().subscribe({
       next: (data) => {
-        this.stocks = data.map(
-          (stock) =>
-            new Stock(
-              stock.id,
-              stock.name,
-              stock.code,
-              stock.price,
-              stock.previousPrice,
-              stock.exchange
-            )
-        );
+        this.stocks = data;
         this.filteredStocks = [...this.stocks];
       },
       error: (error) => {
